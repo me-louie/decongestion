@@ -1,3 +1,3 @@
 "# decongestion" 
 
-"Contributers (in no particular order): Ben Cheung, Patrick Chan, Aidan Mathewson, Thomas Cowan, Chenyuan Wu, & Austin Lee"
+"Contributers (in no particular order): Ben Cheung, Mikayla Louie, Patrick Chan, Aidan Mathewson, Thomas Cowan, Chenyuan Wu, & Austin Lee"

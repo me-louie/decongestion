@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Vancouver Traffic Road Cam</title>
+    <title>Ben's Super BOS Cam</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,17 +14,22 @@
   </head>  
   <body>
     <h1>
-      Vancouver Traffic Road Cam
+      Ben's Super BOS Cam
     </h1>
+    <p>
+      Search an address or location in Vancouver to get traffic webcam images from the nearest intersection.
+    </p>
 <!-- <form autocomplete="off"> -->
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="search" name="myCountry" placeholder="Type in your address here">
+  <div class="autocomplete" style="width:500px;">
+    <input id="myInput" type="search" name="myCountry" placeholder="Type in your address">
   </div>
   
   <button onclick="searchFunction()">Search</button>
   
 <!-- </form> -->
 
-<p id="demo"></p>
+<div>
+  <iframe id = "myFrame"></iframe>
+</div>
   </body>
 </html>

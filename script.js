@@ -140,10 +140,15 @@ function searchFunction() {
 }
 
 function makeIFrame(urlLink) {
-  var iframe = document.createElement('iframe');
-  iframe.src = urlLink;
-  document.body.appendChild(iframe);
-  console.log('iframe.contentWindow =', iframe.contentWindow);
+  // var iframe = document.createElement('iframe');
+  // iframe.src = urlLink;
+  // document.body.appendChild(iframe);
+
+  var myFrame = document.getElementById("myFrame");
+  
+  myFrame.setAttribute("src", urlLink);
+  myFrame.style.width = "100%";
+  myFrame.style.height = "1080px";
 }
 
 function shortestDistance(coordinates, intersection) {
