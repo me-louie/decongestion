@@ -116,23 +116,28 @@ function searchFunction() {
   if (addresses.includes(x)) {
     var index = addresses.findIndex(function(address) {return address == x});
     var result = urls[index];
-    window.open(result, '_blank');
+    // window.open(result, '_blank');
+    var iframe = document.createElement('iframe');
+    iframe.src = result;
+    document.body.appendChild(iframe);
+    console.log('iframe.contentWindow =', iframe.contentWindow);
   } else {
-    var request = new XMLHttpRequest()
-    var url = mapBoxAPI + x + '.json?' + bbox + token
+    let request = new XMLHttpRequest()
+    let url = mapBoxAPI + x + '.json?' + bbox + token
     
-    var bestMatch = [];
+    let bestMatch = [];
     
-    request.open('GET', url);
+    request.open('GET', url, true);
     request.onload = function() {
-        var data = JSON.parse(request.responseText);
-        console.log(JSON.parse(JSON.stringify(data)));
-        console.log("hello");
+        let data = JSON.parse(request.responseText);
+        document.getElementById("demo").innerHTML = data;  
+        // console.log(JSON.parse(JSON.stringify(data)));
         bestMatch.push(data.features[0].geometry.coordinates[1]);
+        document.getElementById("demo").innerHTML = data.features[0].geometry.coordinates[1] + ", " + data.features[0].geometry.coordinates[0];  
         bestMatch.push(data.features[0].geometry.coordinates[0]);
     };    
     request.send();
-    document.getElementById("demo").innerHTML = bestMatch.length;  
+    // document.getElementById("demo").innerHTML = data;  
   }
 }
 
