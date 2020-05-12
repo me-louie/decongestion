@@ -1,8 +1,8 @@
-var mapBoxAPI = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
+var mapBoxAPI = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
 
 // max/min coordinates for CoV region
-var bbox = 'bbox=-123.28965644634036,49.181803990270794,-122.97949367449506,49.322155168068576'
-var token = '&access_token=pk.eyJ1IjoibWVsb3VpZSIsImEiOiJjazJyc25wMHMwMm9xM2NvM2tkNzhveGx1In0.SaPSr8Knxoezj-zQC2TZkA'
+var bbox = 'bbox=-123.28965644634036,49.181803990270794,-122.97949367449506,49.322155168068576';
+var token = '&access_token=pk.eyJ1IjoibWVsb3VpZSIsImEiOiJjazJyc25wMHMwMm9xM2NvM2tkNzhveGx1In0.SaPSr8Knxoezj-zQC2TZkA';
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -29,7 +29,7 @@ function autocomplete(inp, arr) {
     /*for each item in the array...*/
     for (i = 0; i < arr.length; i++) {
       /*check if the item starts with the same letters as the text field value:*/
-      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+      if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
         /*create a DIV element for each matching element:*/
         b = document.createElement("DIV");
         /*make the matching letters bold:*/
@@ -53,20 +53,20 @@ function autocomplete(inp, arr) {
   inp.addEventListener("keydown", function(e) {
     var x = document.getElementById(this.id + "autocomplete-list");
     if (x) x = x.getElementsByTagName("div");
-    if (e.keyCode == 40) {
+    if (e.keyCode === 40) {
       /*If the arrow DOWN key is pressed,
         increase the currentFocus variable:*/
       currentFocus++;
       /*and and make the current item more visible:*/
       addActive(x);
-    } else if (e.keyCode == 38) {
+    } else if (e.keyCode === 38) {
       //up
       /*If the arrow UP key is pressed,
         decrease the currentFocus variable:*/
       currentFocus--;
       /*and and make the current item more visible:*/
       addActive(x);
-    } else if (e.keyCode == 13) {
+    } else if (e.keyCode === 13) {
       /*If the ENTER key is pressed, prevent the form from being submitted,*/
       e.preventDefault();
       if (currentFocus > -1) {
@@ -96,7 +96,7 @@ function autocomplete(inp, arr) {
     except the one passed as an argument:*/
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
+      if (elmnt !== x[i] && elmnt !== inp) {
         x[i].parentNode.removeChild(x[i]);
       }
     }
@@ -112,7 +112,7 @@ function autocomplete(inp, arr) {
 function searchFunction() {
   var x = document.getElementById("myInput").value;
   if (addresses.includes(x)) {
-    var index = addresses.findIndex(function(address) {return address == x});
+    var index = addresses.findIndex(function(address) {return address === x});
     var result = urls[index];
     // window.open(result, '_blank');
     makeIFrame(result);
